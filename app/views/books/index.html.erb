@@ -1,0 +1,19 @@
+<!--@インスタンス.メソッド |モデル|-->
+<h1><string>Books</string></h1>
+<% @books.each do |book| %>
+<h4>title</h4>
+<span><%= book.title %></span>
+<h4>body</h4>
+<span><%= book.body %></span><br>
+
+<% end %>
+
+<h2><string>New Book</string></h2>
+<%= form_with model: @book, url:'/books', local:true do |f| %>
+  <p>title</p><%= f.text_field :title %>
+  <p>body</p>
+  <%= f.text_area :body %><br>
+  <%= f.submit 'create book' %>
+<% end %>
+
+
