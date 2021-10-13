@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-     book = Book.find(params[:id]) #ビューを介さない為ローカル変数で取得
+    book = Book.find(params[:id]) #ビューを介さない為ローカル変数で取得
     book.destroy #destroyメソッドで削除
     redirect_to books_path
 
