@@ -27,10 +27,13 @@ class BooksController < ApplicationController
     book = Book.find(params[:id]) #ビューを介さない為ローカル変数で取得
     book.update(book_params) #updateメソッドで更新
     redirect_to books_path(book.id)
-    
+
   end
 
   def destroy
+     book = Book.find(params[:id]) #ビューを介さない為ローカル変数で取得
+    book.destroy #destroyメソッドで削除
+    redirect_to books_path
 
   end
   private

@@ -13,7 +13,9 @@
       <tr>
         <td><%= book.title %></td>
         <td><%= book.body %></td>
+        <td><%= link_to "Show", book_path(book.id) %></td>
         <td><%= link_to "Edit", edit_book_path(book.id) %></td> <!--12行目で、ローカル変数bookを定義している-->
+        <td><%= link_to "Destroy", books_path(@blog), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
