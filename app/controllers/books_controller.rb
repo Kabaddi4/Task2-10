@@ -14,6 +14,10 @@ class BooksController < ApplicationController
     redirect_to '/books'
   end
 
+  def show
+    @book = Book.find(params[:id])
+  end
+
 
   def edit
     @book = Book.find(params[:id]) #findメソッドでインスタンス変数にデータを格納
@@ -22,7 +26,8 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id]) #ビューを介さない為ローカル変数で取得
     book.update(book_params) #updateメソッドで更新
-    redirect_to book_path(book)
+    redirect_to books_path(book.id)
+    
   end
 
   def destroy
