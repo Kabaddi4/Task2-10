@@ -9,9 +9,12 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(book_params) #ビューへ経由する必要がない為、ローカル変数で定義。
-    book.save #ローカル変数をsaveメソッドで保存
-    redirect_to '/books'
+    @book = Book.new(book_params) #インスタンス変数で定義
+    if @book.save #if文でsaveメソッドに成功した場合の処理を記述
+      redirect_to book_path
+    else
+      render :new
+    end
   end
 
   def show
