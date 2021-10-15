@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all #モデルから全て取得する為に複数形で宣言
-       #10/14 ここか、resourcesが原因でバリデーションがうまく実装できない。メソッドの有効な活用法を学べたのが不幸中の幸い。
+        #10/15 ここで、インスタンス@book　を違和感なく実装すれば解決？それをしない限り一生 no method error()とか突っつかれる、
   end
 
   def new
@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params) #インスタンス変数で定義
     if @book.save #if文でsaveメソッドに成功した場合の処理を記述
-      redirect_to books_path
+      redirect_to book_path(@book.id)  #indexに戻りたいならbooks_path showなら、book_path(@インスタンス,id)
     else
       render :index
     end

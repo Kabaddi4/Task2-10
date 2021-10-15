@@ -25,10 +25,9 @@
 <h2><string>New Book</string></h2>
 
 
-<%= form_with model: @book, url:'/books', local:true do |f| %>
+<%= form_with model: Book.new, local: true do |f| %>
   <p>title</p><%= f.text_field :title %>
-  <p>body</p>
-  <%= f.text_area :body %><br>
+  <p>body</p><%= f.text_area :body %><br>
   <%= f.submit 'create book' %>
 <% end %>
 
