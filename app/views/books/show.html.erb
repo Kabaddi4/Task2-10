@@ -1,5 +1,17 @@
+<!--フラッシュメッセージ（新規投稿）-->
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<!--フラッシュメッセージ(編集機能)-->
+<% if flash[:alert] %>
+  <p><%= flash[:alert] %></p>
+<% end %>
+
 <h2>タイトル</h2>
 <p><%= @book.title %></p> <!--@bookのtitleカラムを取得-->
 <h2>本文</h2>
 <p><%= @book.body %></p>　 <!--@bookのbodyカラムを取得-->
+
+<%= link_to "Edit", edit_book_path(@book.id) %>
 <%= link_to "Back", books_path %>
