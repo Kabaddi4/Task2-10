@@ -1,7 +1,5 @@
 class BooksController < ApplicationController
 
-  def top
-  end
 
   def index
     @books = Book.all #モデルから全て取得する為に複数形で宣言
